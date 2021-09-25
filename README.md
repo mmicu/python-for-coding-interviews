@@ -30,6 +30,31 @@ stack.pop() # `IndexError: pop from empty list` since the `stack` list is empty
 
 
 ## Queues
+```python
+from collections import deque
+
+queue = deque()
+
+queue.append(1)
+queue.append(2)
+queue.append(3)
+queue.append(4)
+
+len(queue) # 4
+
+queue.popleft() # 1
+queue.popleft() # 2
+
+len(queue) # 2
+
+queue.popleft() # 3
+queue.popleft() # 4
+
+len(queue) # 0
+
+queue.popleft() # `IndexError: pop from an empty deque` since the `queue` is empty
+```
+
 
 ## Lists
 
