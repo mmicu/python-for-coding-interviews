@@ -1,72 +1,92 @@
 # Python for coding interviews
 
 
-## Time complexity
+## Primitive Types
+TODO
+
+
+## Arrays
+TODO
+
+
+## Strings
+TODO
 
 
 ## Stacks
 ```python
-stack = []
+>>> stack = []
 
-stack.append(1)
-stack.append(2)
-stack.append(3)
-stack.append(4)
+>>> stack.append(0)
+>>> stack.append(1)
+>>> stack.append(2)
 
-len(stack) # 4
+>>> len(stack)
+3
 
-stack.pop() # 4
-stack.pop() # 3
+>>> stack[0]  # Bottom of the stack
+0
+>>> stack[-1]  # Top of the stack
+2
 
-len(stack) # 2
+>>> stack.pop()
+2
+>>> stack.pop()
+1
 
-stack.pop() # 2
-stack.pop() # 1
+>>> len(stack)
+1
 
-len(stack) # 0
+>>> stack.pop()
+0
 
-stack.pop() # `IndexError: pop from empty list` since the `stack` list is empty
+>>> stack.pop()  # `IndexError: pop from empty list`
+>>> stack[-1]    # `IndexError: pop from empty list`
 ```
 
 
 ## Queues
 ```python
-from collections import deque
+>>> from collections import deque
 
-queue = deque()
+>>> queue = deque()
 
-queue.append(1)
-queue.append(2)
-queue.append(3)
-queue.append(4)
+# Enqueue -> append()
+>>> queue.append(0)
+>>> queue.append(1)
+>>> queue.append(2)
 
-len(queue) # 4
+>>> len(queue)
+3
 
-queue.popleft() # 1
-queue.popleft() # 2
+>>> queue[0]  # Head of the queue
+0
+>>> queue[-1]  # Tail of the queue
+2
 
-len(queue) # 2
+# Dequeue -> popleft()
+>>> queue.popleft()
+0
+>>> queue.popleft()
+1
 
-queue.popleft() # 3
-queue.popleft() # 4
+>>> len(queue)
+2
 
-len(queue) # 0
+>>> queue.popleft()
+2
 
-queue.popleft() # `IndexError: pop from an empty deque` since the `queue` is empty
+>>> len(queue)
+0
+
+>>> queue.popleft()  # `IndexError: pop from an empty deque`
+>>> queue[0]  # `IndexError: pop from an empty deque`
 ```
 
 
-## Lists
-
-## Strings
-
-## Maps
-
+## Hash Tables
+TODO
 
 ## Other
 
-### Counter
-
-
-https://wiki.python.org/moin/TimeComplexity
-https://docs.python.org/3/library/collections.html
+### collections
