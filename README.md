@@ -2,6 +2,65 @@
 
 
 ## Primitive Types
+1. Integers (`int`).
+1. Floats (`float`).
+1. Strings (`str`).
+1. Booleans (`bool`).
+
+```python
+>>> i, f, s, b = 12, 8.31, 'Hello, world!', True
+>>> type(i)  # <class 'int'>   ~ Unbounded
+>>> type(f)  # <class 'float'> ~ Bounded
+>>> type(s)  # <class 'str'>
+>>> type(b)  # <class 'bool'>
+
+>>> str(i)
+'12'
+>>> float(i)
+12.0
+>>> str(b)
+'True'
+>>> int('10')
+10
+>>> bool('a')
+True
+>>> bool(1)
+True
+>>> bool('')
+False
+>>> bool(0.0)
+False
+>>> bool(0)
+False
+
+>>> min(i, 1)
+1
+>>> max(i, 1)
+12
+>>> max(i, f)
+12
+
+>>> pow(2, 3)
+8
+>>> 2 ** 3
+8
+
+>>> import math
+>>> math.ceil(7.2)
+8
+>>> math.floor(7.2)
+7
+>>> math.sqrt(4)
+2.0
+
+>>> float('inf')  # Pseudo max-int
+inf
+>>> float('-inf')  # Pseudo min-int
+-inf
+```
+
+
+### Bit manipulation
 TODO
 
 
@@ -87,6 +146,28 @@ TODO
 ## Hash Tables
 TODO
 
-## Other
 
-### collections
+## Heaps
+TODO
+
+
+## Searching
+TODO
+
+
+## collections
+
+
+### namedtuple
+TODO
+
+
+### Counter
+TODO
+
+
+### defaultdict
+TODO
+
+
+### OrderedDict
