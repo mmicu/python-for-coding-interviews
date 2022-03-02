@@ -65,11 +65,50 @@ TODO
 
 
 ## Arrays
-TODO
+More info about time complexity for lists can be found [here][python-time-complexity].
+```python
+>>> l = [1, 2, 'a']
+>>> type(l)  # <class 'list'>
+>>> len(l)
+3
+>>> l[0]  # First element of the list
+1
+>>> l[-1]  # Last element of the list (equivalent to `l[len(l) - 1]`)
+'a'
+
+>>> l.append('b')  # `O(1)`
+>>> l.pop()  # `O(1)` just for the last element
+'b'
+>>> l.pop(0)  # `O(n)` since list must be shifted
+1
+>>> l
+[2, 'a']
+>>> l.remove('a')  # `O(n)`
+>>> l.remove('b')  # `ValueError: list.remove(x): x not in list`
+>>> l
+[2]
+>>> l.index(2)
+0
+>>> l.index(12)  # ValueError: 12 is not in list
+
+>>> l = [0] * 5
+>>> l
+[0, 0, 0, 0, 0]
+>>> len(l)
+5
+
+>>> rows, cols = 2, 3
+>>> m = [[0] * cols for _ in range(rows)]
+>>> len(m) == rows
+True
+>>> all(len(m[k]) == cols for k in range(rows))
+True
+```
 
 
 ## Strings
-TODO
+- ord
+- chr
 
 
 ## Stacks
@@ -171,3 +210,7 @@ TODO
 
 
 ### OrderedDict
+
+
+
+[python-time-complexity]: https://wiki.python.org/moin/TimeComplexity
