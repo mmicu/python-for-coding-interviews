@@ -107,8 +107,28 @@ True
 
 
 ## Strings
-- ord
-- chr
+```python
+>>> s = 'Hello, world!'
+>>> type(s)  # <class 'str'>
+>>> len(s)
+13
+
+>>> s[0] = 'h'  # Strings are immutable. So you will get: `TypeError: 'str' object does not support item assignment`
+
+>>> ls = list(s)
+>>> ls
+['H', 'e', 'l', 'l', 'o', ',', ' ', 'w', 'o', 'r', 'l', 'd', '!']
+>>> ls[0] = 'h'
+>>> ''.join(ls)
+'hello, world!'
+
+>>> 'Hello' in s
+True
+>>> ord('a')
+97
+>>> chr(97)
+'a'
+```
 
 
 ## Stacks
@@ -182,35 +202,166 @@ True
 ```
 
 
+## Sets
+```python
+```
+
+
 ## Hash Tables
-TODO
+```python
+```
 
 
 ## Heaps
-TODO
+The following commands show how to work with a min heap.
+Currently, Python does not have public methods for the max heap.
+You can overcome this problem by applying one of the following strategies:
+1. Invert the value of each number. So, for example, if you want to add
+   1, 2 and 3 in the min heap, you can `heappush` -3, -2 and -1.
+   When you `heappop` you invert the number again to get the proper value.
+   This solution clearly works if your domain is composed by numbers &ge; 0.
+1. [Invert your object comparison](https://stackoverflow.com/a/40455775).
+
+
+```python
+>>> import heapq
+
+>>> min_heap = [3, 2, 1]
+>>> heapq.heapify(min_heap)
+>>> min_heap
+[1, 2, 3]
+
+>>> min_heap = []
+>>> heapq.heappush(min_heap, 3)
+>>> heapq.heappush(min_heap, 2)
+>>> heapq.heappush(min_heap, 1)
+
+>>> min_heap
+[1, 3, 2]
+>>> len(min_heap)
+>>> min_heap[0]
+1
+>>> heapq.heappop(min_heap)
+1
+>>> min_heap
+[2, 3]
+
+>>> heapq.heappop(min_heap)
+2
+>>> heapq.heappop(min_heap)
+3
+>>> heapq.heappop(min_heap)  # `IndexError: index out of range`
+```
 
 
 ## Searching
-TODO
+```python
+```
 
 
 ## collections
-
+More information about container datatypes can be found
+in [the official documentation][python-collections].
 
 ### namedtuple
-TODO
+```python
+>>> from collections import namedtuple
 
+>>> Point = namedtuple('Point', 'x y')
 
-### Counter
-TODO
+>>> p0 = Point(1, 2)
+>>> p0
+Point(x=1, y=2)
+>>> p0.x
+1
+>>> p0.y
+2
+
+>>> p1 = Point(x=1, y=2)
+>>> p0 == p1
+True
+
+# Python >= 3.6.1
+>>> from typing import Any, NamedTuple
+>>>
+>>> class Point(NamedTuple):
+...     x: int
+...     y: int
+...
+
+>>> p0 = Point(1, 2)
+>>> p1 = Point(x=1, y=2)
+>>> p0 == p1
+True
+```
 
 
 ### defaultdict
-TODO
+```python
+>>> from collections import defaultdict
+
+>>> dd = defaultdict(int)
+>>> dd['x'] += 1
+>>> dd
+defaultdict(<class 'int'>, {'x': 1})
+>>> dd['x'] += 2
+>>> dd
+defaultdict(<class 'int'>, {'x': 3})
+>>> dd['y'] += 10
+>>> dd
+defaultdict(<class 'int'>, {'x': 3, 'y': 10})
+
+>>> dd = defaultdict(list)
+>>> dd['x'].append(1)
+>>> dd['x'].append(2)
+>>> dd
+defaultdict(<class 'list'>, {'x': [1, 2]})
+```
+
+
+### Counter
+```python
+>>> from collections import Counter
+
+>>> c = Counter('abcabcaa')
+>>> c
+Counter({'a': 4, 'b': 2, 'c': 2})
+>>> c.keys()
+dict_keys(['a', 'b', 'c'])
+>>> c.items()
+dict_items([('a', 4), ('b', 2), ('c', 2)])
+>>> for k, v in c.items():
+...     print(k, v)
+...
+a 4
+b 2
+c 2
+>>> c['d']  # It acts as a `defaultdict` for missing keys
+0
+```
 
 
 ### OrderedDict
+```python
+>>> from collections import OrderedDict
+
+>>> od = OrderedDict()
+
+>>> od['first'] = 1
+>>> od['second'] = 2
+>>> od['third'] = 3
+>>> od
+OrderedDict([('first', 1), ('second', 2), ('third', 3)])
+
+>>> for k, v in od.items():
+...     print(k, v)
+...
+first 1
+second 2
+third 3
+```
 
 
 
 [python-time-complexity]: https://wiki.python.org/moin/TimeComplexity
+[python-collections]: https://docs.python.org/3/library/collections.html
