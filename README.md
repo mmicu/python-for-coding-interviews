@@ -64,7 +64,33 @@ inf
 TODO
 
 
-## Arrays
+## Tuples
+```python
+>>> t = (1, 2, 'str')
+>>> type(t)
+<class 'tuple'>
+>>> t
+(1, 2, 'str')
+>>> len(t)
+3
+
+>>> t[0] = 10  # Tuples are immutable: `TypeError: 'tuple' object does not support item assignment`
+
+>>> a, b, c = t
+>>> a
+1
+>>> b
+2
+>>> c
+'str'
+>>> a, _, _ = t  # Get first element and ignore the other two values
+>>> a
+1
+```
+
+
+
+## Lists
 More info about time complexity for lists can be found [here][python-time-complexity].
 ```python
 >>> l = [1, 2, 'a']
@@ -96,6 +122,33 @@ More info about time complexity for lists can be found [here][python-time-comple
 [0, 0, 0, 0, 0]
 >>> len(l)
 5
+
+>>> l = [10, 2, 0, 1]
+>>> l
+[10, 2, 0, 1]
+>>> l.sort()  # It changes the original list
+>>> l
+[0, 1, 2, 10]
+>>> l.sort(reverse=True)  # It changes the original list
+>>> l
+[10, 2, 1, 0]
+
+>>> l = [10, 2, 0, 1]
+>>> sorted(l)  # It returns a new list
+[0, 1, 2, 10]
+>>> l
+[10, 2, 0, 1]
+
+>>> students = [
+...     ('Mark', 21),
+...     ('Luke', 20),
+...     ('Anna', 18),
+... ]
+>>> sorted(students, key=lambda s: s[1])
+[('Anna', 18), ('Luke', 20), ('Mark', 21)]
+>>> students.sort(key=lambda s: s[1])
+>>> students
+[('Anna', 18), ('Luke', 20), ('Mark', 21)]
 
 >>> rows, cols = 2, 3
 >>> m = [[0] * cols for _ in range(rows)]
@@ -131,29 +184,6 @@ True
 ```
 
 
-## Tuples
-```python
->>> t = (1, 2, 'str')
->>> type(t)
-<class 'tuple'>
->>> t
-(1, 2, 'str')
->>> len(t)
-3
-
->>> t[0] = 10  # Tuples are immutable: `TypeError: 'tuple' object does not support item assignment`
-
->>> a, b, c = t
->>> a
-1
->>> b
-2
->>> c
-'str'
->>> a, _, _ = t  # Get first element and ignore the other two values
->>> a
-1
-```
 
 
 ## Stacks
