@@ -131,6 +131,31 @@ True
 ```
 
 
+## Tuples
+```python
+>>> t = (1, 2, 'str')
+>>> type(t)
+<class 'tuple'>
+>>> t
+(1, 2, 'str')
+>>> len(t)
+3
+
+>>> t[0] = 10  # Tuples are immutable: `TypeError: 'tuple' object does not support item assignment`
+
+>>> a, b, c = t
+>>> a
+1
+>>> b
+2
+>>> c
+'str'
+>>> a, _, _ = t  # Get first element and ignore the other two values
+>>> a
+1
+```
+
+
 ## Stacks
 ```python
 >>> stack = []
@@ -204,11 +229,94 @@ True
 
 ## Sets
 ```python
+>>> s = set()
+>>> s.add(1)
+>>> s.add(2)
+>>> s
+{1, 2}
+>>> s.add(1)  # Duplicate elements are not allowed
+>>> s
+{1, 2}
+>>> s.add('a')  # We can mix types
+>>> s
+{1, 2, 'a'}
+
+>>> s0 = {1, 2, 'a'}
+>>> s0
+{1, 2, 'a'}
+>>> s1 = set([1, 2, 'a'])
+>>> s1
+{1, 2, 'a'}
+
+>>> len(s)
+3
+>>> 'a' in s
+True
+
+>>> s.remove(1)
+>>> s
+{2, 'a'}
+>>> s.remove(1)  # KeyError: 1
+
+>>> s0 = {1, 2}
+>>> s1 = {1, 3}
+>>> s0 | s1
+{1, 2, 3}
+>>> s0.union(s1)  # New set will be returned
+{1, 2, 3}
+
+>>> s0 = {1, 2}
+>>> s1 = {1, 3}
+>>> s0 & s1
+{1}
+>>> s0.intersection(s1)  # New set will be returned
+{1}
+
+>>> s0 = {1, 2}
+>>> s1 = {1, 3}
+>>> s0 - s1
+{2}
+>>> s0.difference(s1)
+{2}
 ```
 
 
 ## Hash Tables
 ```python
+>>> d = {'a': 'hello, world', b: 11}
+>>> type(d)
+<class 'dict'>
+>>> d
+{'a': 'hello, world', 'b': 11}
+
+>>> d = dict(a='hello, world', b=11)
+
+>>> d.keys()
+dict_keys(['a', 'b'])
+>>> d.values()
+dict_values(['hello, world', 11])
+>>> for k, v in d.items():
+...     print(k, v)
+...
+a hello, world
+b 11
+
+>>> 'a' in d
+True
+>>> 1 in d
+False
+>>> d['a'] += '!'
+>>> d
+{'a': 'hello, world!', 'b': 11}
+>>> d[1] = 'a new element'
+>>> d
+{'a': 'hello, world!', 'b': 11, 1: 'a new element'}
+
+>>> d[0] += 10  # KeyError: 0
+>>> d.get(0, 'a default value')  # Return a default value if key does not exist
+'a default value'
+>>> d.get(1, 'a default value')  # Key `1` exists, so the actual value will be returned
+'a new element'
 ```
 
 
