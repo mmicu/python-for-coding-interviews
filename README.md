@@ -84,10 +84,31 @@ Information described here, can be integrated with the following list:
 inf
 ```
 
-### Bit manipulation
+## `range` and `enumerate`
 
 ```python
-TODO
+# `range`
+>>> list(range(3))  # Equivalent to `range(0, 3)`
+[0, 1, 2]
+>>> list(range(1, 10, 2))
+[1, 3, 5, 7, 9]
+>>> for i in range(3): print(i)
+...
+0
+1
+2
+
+# `enumerate`
+>>> for i, v in enumerate(range(3)): print(i, v)
+...
+0 0
+1 1
+2 2
+>>> for i, v in enumerate(range(3), start=10): print(i, v)
+...
+10 0
+11 1
+12 2
 ```
 
 ## Tuples
@@ -130,6 +151,12 @@ TODO
 >>> l[-1]  # Last element of the list (equivalent to `l[len(l) - 1]`)
 'a'
 
+# Slicing
+>>> l[:]  # `l[start:end]` where `end` is exclusive
+[1, 2, 'a']
+>>> l[0:len(l)]  # `start` is 0 and `end` is `len(l)` if omitted
+[1, 2, 'a']
+
 # Some useful methods
 >>> l.append('b')  # `O(1)`
 >>> l.pop()  # `O(1)` just for the last element
@@ -164,7 +191,11 @@ True
 True
 
 # Built-in methods
->>> l = [1, 2, 3, 4]
+>>> l = [2, 1, 4, 3]
+>>> min(l)
+1
+>>> max(l)
+4
 >>> sum(l)
 10
 >>> any(v == 4 for v in l)
@@ -214,13 +245,15 @@ True
 13
 
 >>> s[0] = 'h'  # Strings are immutable. So you will get: `TypeError: 'str' object does not support item assignment`
+>>> s += ' Another string'  # A new string will be created, so concatenation is quite slow
 
->>> ls = list(s)
->>> ls
-['H', 'e', 'l', 'l', 'o', ',', ' ', 'w', 'o', 'r', 'l', 'd', '!']
->>> ls[0] = 'h'
->>> ''.join(ls)
-'hello, world!'
+>>> s = 'Hello'
+>>> l = list(s)
+>>> l
+['H', 'e', 'l', 'l', 'o']
+>>> l[0] = 'h'
+>>> ''.join(l)
+'hello'
 
 >>> 'Hello' in s
 True
@@ -233,7 +266,7 @@ True
 ## Stacks
 
 ```python
->>> stack = []
+>>> stack = []  # We can use a list to simulate a stack
 
 >>> stack.append(0)  # `O(1)`
 >>> stack.append(1)
@@ -309,6 +342,8 @@ True
 >>> s.add(2)
 >>> s
 {1, 2}
+>>> len(s)
+2
 >>> s.add(1)  # Duplicate elements are not allowed
 >>> s
 {1, 2}
@@ -317,6 +352,10 @@ True
 {1, 2, 'a'}
 >>> 1 in s  # `O(1)`
 True
+>>> s.remove(1)
+>>> s
+{2, 'a'}
+>>> s.remove(1)  # KeyError: 1
 
 >>> s0 = {1, 2, 'a'}
 >>> s0
@@ -324,16 +363,6 @@ True
 >>> s1 = set([1, 2, 'a'])
 >>> s1
 {1, 2, 'a'}
-
->>> len(s)
-3
->>> 'a' in s
-True
-
->>> s.remove(1)
->>> s
-{2, 'a'}
->>> s.remove(1)  # KeyError: 1
 
 >>> s0 = {1, 2}
 >>> s1 = {1, 3}
@@ -360,13 +389,11 @@ True
 ## Hash Tables
 
 ```python
->>> d = {'a': 'hello, world', b: 11}
+>>> d = {'a': 'hello, world', 'b': 11}  # Equivalent to `dict(a='hello, world', b=11)`
 >>> type(d)
 <class 'dict'>
 >>> d
 {'a': 'hello, world', 'b': 11}
-
->>> d = dict(a='hello, world', b=11)
 
 >>> d.keys()
 dict_keys(['a', 'b'])
