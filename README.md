@@ -1,4 +1,10 @@
-# Python for coding interviews
+---
+title: Python for Coding Interviews
+subtitle: <https://github.com/mmicu/python-for-coding-interviews>
+geometry: margin=1in
+---
+
+# Introduction
 
 List of several and useful `Python` data structures to know for coding interviews.
 
