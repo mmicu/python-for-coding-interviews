@@ -68,7 +68,7 @@ Information described here, can be integrated with the following list:
 >>> 2 ** 3  # Equivalent to `pow(2, 3)`
 8
 
-# Math functions from the proper package
+# Math functions from the `math` package
 >>> import math
 >>> math.ceil(7.2)
 8
@@ -103,23 +103,24 @@ TODO
 
 >>> t[0] = 10  # Tuples are immutable: `TypeError: 'tuple' object does not support item assignment`
 
->>> a, b, c = t
+>>> a, b, c = t  # Unpacking
 >>> a
 1
 >>> b
 2
 >>> c
 'str'
->>> a, _, _ = t  # Get first element and ignore the other two values
+>>> a, _, _ = t  # Unpacking: ignore second and third elements
 >>> a
 1
 ```
 
 ## Lists
 
-More info about time complexity for lists can be found [here][python-time-complexity].
+`Python` uses `Timsort` algorithm in `sort` and `sorted` (<https://en.wikipedia.org/wiki/Timsort>).
 
 ```python
+# Define a list
 >>> l = [1, 2, 'a']
 >>> type(l)  # <class 'list'>
 >>> len(l)
@@ -129,6 +130,7 @@ More info about time complexity for lists can be found [here][python-time-comple
 >>> l[-1]  # Last element of the list (equivalent to `l[len(l) - 1]`)
 'a'
 
+# Some useful methods
 >>> l.append('b')  # `O(1)`
 >>> l.pop()  # `O(1)` just for the last element
 'b'
@@ -144,12 +146,35 @@ More info about time complexity for lists can be found [here][python-time-comple
 0
 >>> l.index(12)  # ValueError: 12 is not in list
 
+# More compact way to define a list
 >>> l = [0] * 5
 >>> l
 [0, 0, 0, 0, 0]
 >>> len(l)
 5
+>>> [k for k in range(5)]
+[0, 1, 2, 3, 4]
 
+# Compact way to define 2D arrays
+>>> rows, cols = 2, 3
+>>> m = [[0] * cols for _ in range(rows)]
+>>> len(m) == rows
+True
+>>> all(len(m[k]) == cols for k in range(rows))
+True
+
+# Built-in methods
+>>> l = [1, 2, 3, 4]
+>>> sum(l)
+10
+>>> any(v == 4 for v in l)
+True
+>>> any(v == 5 for v in l)
+False
+>>> all(v > 0 for v in l)
+True
+
+# Sort list in-place (`sort`)
 >>> l = [10, 2, 0, 1]
 >>> l
 [10, 2, 0, 1]
@@ -160,12 +185,14 @@ More info about time complexity for lists can be found [here][python-time-comple
 >>> l
 [10, 2, 1, 0]
 
+# Sort a list a return a new one (`sorted`)
 >>> l = [10, 2, 0, 1]
 >>> sorted(l)  # It returns a new list
 [0, 1, 2, 10]
 >>> l
 [10, 2, 0, 1]
 
+# Sort by a different key
 >>> students = [
 ...     ('Mark', 21),
 ...     ('Luke', 20),
@@ -176,13 +203,6 @@ More info about time complexity for lists can be found [here][python-time-comple
 >>> students.sort(key=lambda s: s[1])
 >>> students
 [('Anna', 18), ('Luke', 20), ('Mark', 21)]
-
->>> rows, cols = 2, 3
->>> m = [[0] * cols for _ in range(rows)]
->>> len(m) == rows
-True
->>> all(len(m[k]) == cols for k in range(rows))
-True
 ```
 
 ## Strings
@@ -215,7 +235,7 @@ True
 ```python
 >>> stack = []
 
->>> stack.append(0)
+>>> stack.append(0)  # `O(1)`
 >>> stack.append(1)
 >>> stack.append(2)
 
@@ -227,7 +247,7 @@ True
 >>> stack[-1]  # Top of the stack
 2
 
->>> stack.pop()
+>>> stack.pop()  # `O(1)`
 2
 >>> stack.pop()
 1
@@ -250,7 +270,7 @@ True
 >>> queue = deque()
 
 # Enqueue -> append()
->>> queue.append(0)
+>>> queue.append(0)  # `O(1)`
 >>> queue.append(1)
 >>> queue.append(2)
 
@@ -263,7 +283,7 @@ True
 2
 
 # Dequeue -> popleft()
->>> queue.popleft()
+>>> queue.popleft()  # `O(1)`
 0
 >>> queue.popleft()
 1
@@ -295,6 +315,8 @@ True
 >>> s.add('a')  # We can mix types
 >>> s
 {1, 2, 'a'}
+>>> 1 in s  # `O(1)`
+True
 
 >>> s0 = {1, 2, 'a'}
 >>> s0
@@ -356,7 +378,7 @@ dict_values(['hello, world', 11])
 a hello, world
 b 11
 
->>> 'a' in d
+>>> 'a' in d  # `O(1)`
 True
 >>> 1 in d
 False
@@ -395,7 +417,7 @@ You can overcome this problem by applying one of the following strategies:
 [1, 2, 3]
 
 >>> min_heap = []
->>> heapq.heappush(min_heap, 3)
+>>> heapq.heappush(min_heap, 3)  # `O(log n)`
 >>> heapq.heappush(min_heap, 2)
 >>> heapq.heappush(min_heap, 1)
 
@@ -404,7 +426,7 @@ You can overcome this problem by applying one of the following strategies:
 >>> len(min_heap)
 >>> min_heap[0]
 1
->>> heapq.heappop(min_heap)
+>>> heapq.heappop(min_heap)  # `O(log n)`
 1
 >>> min_heap
 [2, 3]
@@ -414,11 +436,6 @@ You can overcome this problem by applying one of the following strategies:
 >>> heapq.heappop(min_heap)
 3
 >>> heapq.heappop(min_heap)  # `IndexError: index out of range`
-```
-
-## Searching
-
-```python
 ```
 
 ### collections.namedtuple

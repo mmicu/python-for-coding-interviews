@@ -3,7 +3,7 @@ OUTPUT_FILE = artifacts/python-for-coding-interview.pdf
 
 .PHONY: linter
 linter:
-	markdownlint README.md --disable MD013
+	markdownlint README.md --disable MD013 MD025
 
 .PHONY: pdf
 pdf:
