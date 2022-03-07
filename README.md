@@ -1,4 +1,5 @@
 # Python for coding interviews
+
 List of several and useful `Python` data structures to know for coding interviews.
 
 It is intended to show main data structures incorporated in the language
@@ -8,11 +9,11 @@ Information described here, can be integrated with the following list:
 
 | **Topic** | **Link** |
 |---|---|
-| Time complexity | https://wiki.python.org/moin/TimeComplexity |
-| Python collections | https://docs.python.org/3/library/collections.html |
-
+| Time complexity | <https://wiki.python.org/moin/TimeComplexity> |
+| Python collections | <https://docs.python.org/3/library/collections.html> |
 
 ## Primitive Types
+
 1. Booleans (`bool`).
 1. Integers (`int`).
 1. Floats (`float`).
@@ -77,14 +78,14 @@ Information described here, can be integrated with the following list:
 inf
 ```
 
-
 ### Bit manipulation
+
 ```python
 TODO
 ```
 
-
 ## Tuples
+
 ```python
 >>> t = (1, 2, 'str')
 >>> type(t)
@@ -109,7 +110,9 @@ TODO
 ```
 
 ## Lists
+
 More info about time complexity for lists can be found [here][python-time-complexity].
+
 ```python
 >>> l = [1, 2, 'a']
 >>> type(l)  # <class 'list'>
@@ -176,8 +179,8 @@ True
 True
 ```
 
-
 ## Strings
+
 ```python
 >>> s = 'Hello, world!'
 >>> type(s)  # <class 'str'>
@@ -202,6 +205,7 @@ True
 ```
 
 ## Stacks
+
 ```python
 >>> stack = []
 
@@ -232,8 +236,8 @@ True
 >>> stack[-1]    # `IndexError: pop from empty list`
 ```
 
-
 ## Queues
+
 ```python
 >>> from collections import deque
 
@@ -271,8 +275,8 @@ True
 >>> queue[0]  # `IndexError: pop from an empty deque`
 ```
 
-
 ## Sets
+
 ```python
 >>> s = set()
 >>> s.add(1)
@@ -325,8 +329,8 @@ True
 {2}
 ```
 
-
 ## Hash Tables
+
 ```python
 >>> d = {'a': 'hello, world', b: 11}
 >>> type(d)
@@ -364,17 +368,17 @@ False
 'a new element'
 ```
 
-
 ## Heaps
+
 The following commands show how to work with a min heap.
 Currently, Python does not have public methods for the max heap.
 You can overcome this problem by applying one of the following strategies:
+
 1. Invert the value of each number. So, for example, if you want to add
    1, 2 and 3 in the min heap, you can `heappush` -3, -2 and -1.
    When you `heappop` you invert the number again to get the proper value.
    This solution clearly works if your domain is composed by numbers &ge; 0.
 1. [Invert your object comparison](https://stackoverflow.com/a/40455775).
-
 
 ```python
 >>> import heapq
@@ -406,17 +410,13 @@ You can overcome this problem by applying one of the following strategies:
 >>> heapq.heappop(min_heap)  # `IndexError: index out of range`
 ```
 
-
 ## Searching
+
 ```python
 ```
 
+### collections.namedtuple
 
-## collections
-More information about container datatypes can be found
-in [the official documentation][python-collections].
-
-### namedtuple
 ```python
 >>> from collections import namedtuple
 
@@ -448,8 +448,8 @@ True
 True
 ```
 
+### collections.defaultdict
 
-### defaultdict
 ```python
 >>> from collections import defaultdict
 
@@ -471,8 +471,8 @@ defaultdict(<class 'int'>, {'x': 3, 'y': 10})
 defaultdict(<class 'list'>, {'x': [1, 2]})
 ```
 
+### collections.Counter
 
-### Counter
 ```python
 >>> from collections import Counter
 
@@ -493,8 +493,8 @@ c 2
 0
 ```
 
+### collections.OrderedDict
 
-### OrderedDict
 ```python
 >>> from collections import OrderedDict
 

@@ -1,6 +1,6 @@
 .PHONY: linter
 linter:
-	markdownlint README.md
+	markdownlint README.md --disable MD013
 
 .PHONY: pdf
 pdf:
