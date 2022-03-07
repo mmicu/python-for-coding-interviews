@@ -1,19 +1,32 @@
 # Python for coding interviews
+List of several and useful `Python` data structures to know for coding interviews.
+
+It is intended to show main data structures incorporated in the language
+and their useful functions. More advance `Python` feature will not be shown here.
+
+Information described here, can be integrated with the following list:
+
+| **Topic** | **Link** |
+|---|---|
+| Time complexity | https://wiki.python.org/moin/TimeComplexity |
+| Python collections | https://docs.python.org/3/library/collections.html |
 
 
 ## Primitive Types
+1. Booleans (`bool`).
 1. Integers (`int`).
 1. Floats (`float`).
 1. Strings (`str`).
-1. Booleans (`bool`).
 
 ```python
->>> i, f, s, b = 12, 8.31, 'Hello, world!', True
+# Define variables
+>>> b, i, f, s = True, 12, 8.31, 'Hello, world!'
+>>> type(b)  # <class 'bool'>
 >>> type(i)  # <class 'int'>   ~ Unbounded
 >>> type(f)  # <class 'float'> ~ Bounded
 >>> type(s)  # <class 'str'>
->>> type(b)  # <class 'bool'>
 
+# Type Conversion
 >>> str(i)
 '12'
 >>> float(i)
@@ -22,29 +35,33 @@
 'True'
 >>> int('10')
 10
->>> bool('a')
-True
->>> bool(1)
-True
->>> bool('')
-False
->>> bool(0.0)
-False
->>> bool(0)
-False
+>>> int('10a')  # ValueError: invalid literal for int() with base 10: '10a'
 
->>> min(i, 1)
-1
->>> max(i, 1)
-12
->>> max(i, f)
-12
+# Operations
+>>> 2 * 2
+4
+>>> 2 * 2.
+4.0
+>>> 4 / 2
+2.0
+>>> 4 // 2  # `//` is the integer division
+2
 
->>> pow(2, 3)
+# `min` and `max`
+>>> min(4, 2)
+2
+>>> max(21, 29)
+29
+
+# Some useful math functions
+>>> abs(-1.2)
+1.2
+>>> divmod(9, 4)
+(2, 1)
+>>> 2 ** 3  # Equivalent to `pow(2, 3)`
 8
->>> 2 ** 3
-8
 
+# Math functions from the proper package
 >>> import math
 >>> math.ceil(7.2)
 8
@@ -53,15 +70,18 @@ False
 >>> math.sqrt(4)
 2.0
 
->>> float('inf')  # Pseudo max-int
-inf
+# Pseudo lower and upper bounds
 >>> float('-inf')  # Pseudo min-int
 -inf
+>>> float('inf')  # Pseudo max-int
+inf
 ```
 
 
 ### Bit manipulation
+```python
 TODO
+```
 
 
 ## Tuples
@@ -87,8 +107,6 @@ TODO
 >>> a
 1
 ```
-
-
 
 ## Lists
 More info about time complexity for lists can be found [here][python-time-complexity].
@@ -182,9 +200,6 @@ True
 >>> chr(97)
 'a'
 ```
-
-
-
 
 ## Stacks
 ```python
@@ -498,8 +513,3 @@ first 1
 second 2
 third 3
 ```
-
-
-
-[python-time-complexity]: https://wiki.python.org/moin/TimeComplexity
-[python-collections]: https://docs.python.org/3/library/collections.html
