@@ -6,12 +6,12 @@ geometry: margin=1in
 
 # Introduction
 
-List of several and useful `Python` data structures to know for coding interviews.
+This guide includes a list of several and useful `Python` data structures to know for coding interviews.
 
-It is intended to show main data structures incorporated in the language
+It is intended to show the main data structures incorporated in the language
 and their useful functions. More advance `Python` feature will not be shown here.
 
-Information described here, can be integrated with the following list:
+Additional links:
 
 | **Topic** | **Link** |
 |---|---|
@@ -42,7 +42,7 @@ Information described here, can be integrated with the following list:
 'True'
 >>> int('10')
 10
->>> int('10a')  # ValueError: invalid literal for int() with base 10: '10a'
+>>> int('10a')  # `ValueError: invalid literal for int() with base 10: '10a'`
 
 # Operations
 >>> 2 * 2
@@ -53,6 +53,8 @@ Information described here, can be integrated with the following list:
 2.0
 >>> 4 // 2  # `//` is the integer division
 2
+>>> 3 % 2
+1
 
 # `min` and `max`
 >>> min(4, 2)
@@ -97,6 +99,11 @@ inf
 0
 1
 2
+>>> for i in range(2, -1, -1): print(i)  # Equivalent to `reversed(range(3))`
+...
+2
+1
+0
 
 # `enumerate`
 >>> for i, v in enumerate(range(3)): print(i, v)
@@ -171,7 +178,7 @@ inf
 [2]
 >>> l.index(2)
 0
->>> l.index(12)  # ValueError: 12 is not in list
+>>> l.index(12)  # `ValueError: 12 is not in list`
 
 # More compact way to define a list
 >>> l = [0] * 5
@@ -220,7 +227,7 @@ True
 >>> l = [10, 2, 0, 1]
 >>> sorted(l)  # It returns a new list
 [0, 1, 2, 10]
->>> l
+>>> l  # Original list is not sorted
 [10, 2, 0, 1]
 
 # Sort by a different key
@@ -229,9 +236,9 @@ True
 ...     ('Luke', 20),
 ...     ('Anna', 18),
 ... ]
->>> sorted(students, key=lambda s: s[1])
+>>> sorted(students, key=lambda s: s[1])  # It returns a new list
 [('Anna', 18), ('Luke', 20), ('Mark', 21)]
->>> students.sort(key=lambda s: s[1])
+>>> students.sort(key=lambda s: s[1])  # In-place
 >>> students
 [('Anna', 18), ('Luke', 20), ('Mark', 21)]
 ```
@@ -244,7 +251,7 @@ True
 >>> len(s)
 13
 
->>> s[0] = 'h'  # Strings are immutable. So you will get: `TypeError: 'str' object does not support item assignment`
+>>> s[0] = 'h'  # Strings are immutable: `TypeError: 'str' object does not support item assignment`
 >>> s += ' Another string'  # A new string will be created, so concatenation is quite slow
 
 >>> s = 'Hello'
@@ -255,7 +262,7 @@ True
 >>> ''.join(l)
 'hello'
 
->>> 'Hello' in s
+>>> 'lo' in s
 True
 >>> ord('a')
 97
@@ -266,7 +273,7 @@ True
 ## Stacks
 
 ```python
->>> stack = []  # We can use a list to simulate a stack
+>>> stack = []  # We can use a normal list to simulate a stack
 
 >>> stack.append(0)  # `O(1)`
 >>> stack.append(1)
@@ -344,7 +351,7 @@ True
 {1, 2}
 >>> len(s)
 2
->>> s.add(1)  # Duplicate elements are not allowed
+>>> s.add(1)  # Duplicate elements are not allowed per definition
 >>> s
 {1, 2}
 >>> s.add('a')  # We can mix types
@@ -417,22 +424,24 @@ False
 {'a': 'hello, world!', 'b': 11, 1: 'a new element'}
 
 >>> d[0] += 10  # KeyError: 0
->>> d.get(0, 'a default value')  # Return a default value if key does not exist
-'a default value'
->>> d.get(1, 'a default value')  # Key `1` exists, so the actual value will be returned
+>>> d.get(0, 1)  # Return `1` as default value since key `0` does not exist
+1
+>>> d.get(1, '?')  # Key `1` exists, so the actual value will be returned
 'a new element'
+>>> d.get(10) is None
+True
 ```
 
 ## Heaps
 
-The following commands show how to work with a min heap.
-Currently, Python does not have public methods for the max heap.
+The following commands show how to work with a `min heap`.
+Currently, `Python` does not have public methods for the `max heap`.
 You can overcome this problem by applying one of the following strategies:
 
 1. Invert the value of each number. So, for example, if you want to add
    1, 2 and 3 in the min heap, you can `heappush` -3, -2 and -1.
    When you `heappop` you invert the number again to get the proper value.
-   This solution clearly works if your domain is composed by numbers &ge; 0.
+   This solution clearly works if your domain is composed by numbers >= 0.
 1. [Invert your object comparison](https://stackoverflow.com/a/40455775).
 
 ```python
@@ -503,21 +512,21 @@ True
 ```python
 >>> from collections import defaultdict
 
->>> dd = defaultdict(int)
->>> dd['x'] += 1
->>> dd
+>>> d = defaultdict(int)
+>>> d['x'] += 1
+>>> d
 defaultdict(<class 'int'>, {'x': 1})
->>> dd['x'] += 2
->>> dd
+>>> d['x'] += 2
+>>> d
 defaultdict(<class 'int'>, {'x': 3})
->>> dd['y'] += 10
->>> dd
+>>> d['y'] += 10
+>>> d
 defaultdict(<class 'int'>, {'x': 3, 'y': 10})
 
->>> dd = defaultdict(list)
->>> dd['x'].append(1)
->>> dd['x'].append(2)
->>> dd
+>>> d = defaultdict(list)
+>>> d['x'].append(1)
+>>> d['x'].append(2)
+>>> d
 defaultdict(<class 'list'>, {'x': [1, 2]})
 ```
 
@@ -548,15 +557,15 @@ c 2
 ```python
 >>> from collections import OrderedDict
 
->>> od = OrderedDict()
+>>> d = OrderedDict()
 
->>> od['first'] = 1
->>> od['second'] = 2
->>> od['third'] = 3
->>> od
+>>> d['first'] = 1
+>>> d['second'] = 2
+>>> d['third'] = 3
+>>> d
 OrderedDict([('first', 1), ('second', 2), ('third', 3)])
 
->>> for k, v in od.items():
+>>> for k, v in d.items():
 ...     print(k, v)
 ...
 first 1
