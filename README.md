@@ -51,7 +51,7 @@ Additional links:
 4.0
 >>> 4 / 2
 2.0
->>> 4 // 2  # `//` is the integer division
+>>> 5 // 2  # `//` is the integer division
 2
 >>> 3 % 2
 1
@@ -362,7 +362,9 @@ True
 >>> s.remove(1)
 >>> s
 {2, 'a'}
->>> s.remove(1)  # KeyError: 1
+>>> s.remove(1)  # `KeyError: 1`
+>>> s.pop()  # Remove and return an arbitrary element from the set
+2
 
 >>> s0 = {1, 2, 'a'}
 >>> s0
@@ -423,7 +425,7 @@ False
 >>> d
 {'a': 'hello, world!', 'b': 11, 1: 'a new element'}
 
->>> d[0] += 10  # KeyError: 0
+>>> d[0] += 10  # `KeyError: 0`
 >>> d.get(0, 1)  # Return `1` as default value since key `0` does not exist
 1
 >>> d.get(1, '?')  # Key `1` exists, so the actual value will be returned
