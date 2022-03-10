@@ -11,7 +11,7 @@ This guide includes a list of several and useful `Python` data structures to kno
 It is intended to show the main data structures incorporated in the language
 and their useful functions. More advance `Python` feature will not be shown here.
 
-Additional links:
+Additional material:
 
 | **Topic** | **Link** |
 |---|---|
@@ -159,7 +159,7 @@ inf
 'a'
 
 # Slicing
->>> l[:]  # `l[start:end]` where `end` is exclusive
+>>> l[:]  # `l[start:end]` which means `[start, end)`
 [1, 2, 'a']
 >>> l[0:len(l)]  # `start` is 0 and `end` is `len(l)` if omitted
 [1, 2, 'a']
@@ -176,7 +176,7 @@ inf
 >>> l.remove('b')  # `ValueError: list.remove(x): x not in list`
 >>> l
 [2]
->>> l.index(2)
+>>> l.index(2)  # It returns first occurrence (`O(n)`)
 0
 >>> l.index(12)  # `ValueError: 12 is not in list`
 
@@ -188,6 +188,8 @@ inf
 5
 >>> [k for k in range(5)]
 [0, 1, 2, 3, 4]
+>>> [k for k in reversed(range(5))]
+[4, 3, 2, 1, 0]
 
 # Compact way to define 2D arrays
 >>> rows, cols = 2, 3
@@ -199,6 +201,8 @@ True
 
 # Built-in methods
 >>> l = [2, 1, 4, 3]
+>>> len(l)
+4
 >>> min(l)
 1
 >>> max(l)
@@ -496,7 +500,7 @@ Point(x=1, y=2)
 True
 
 # Python >= 3.6.1
->>> from typing import Any, NamedTuple
+>>> from typing import NamedTuple
 >>>
 >>> class Point(NamedTuple):
 ...     x: int
