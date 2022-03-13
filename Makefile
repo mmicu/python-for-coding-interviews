@@ -1,9 +1,11 @@
+.DEFAULT_GOAL := all
+
 INPUT_FILE = README.md
 OUTPUT_FILE = artifacts/python-for-coding-interview.pdf
 
 .PHONY: linter
 linter:
-	markdownlint README.md --disable MD013 MD025
+	markdownlint $(INPUT_FILE) --disable MD013 MD025
 
 .PHONY: pdf
 pdf:
@@ -11,3 +13,6 @@ pdf:
 		--pdf-engine=xelatex \
 		-M date="`date "+%B%e, %Y"`" \
 		-o $(OUTPUT_FILE)
+
+.PHONY: all
+all: linter pdf

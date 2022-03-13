@@ -9,7 +9,7 @@ geometry: margin=1in
 This guide includes a list of several and useful `Python` data structures to know for coding interviews.
 
 It is intended to show the main data structures incorporated in the language
-and their useful functions. More advance `Python` feature will not be shown here.
+and their useful functions. More advance `Python` features will not be shown here.
 
 Additional material:
 
