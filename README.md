@@ -30,10 +30,10 @@ Additional material:
 1. [Hash Tables](#hash-tables).
 1. [Heaps](#heaps).
 1. [Collections](#collections):
-   1. [namedtuple](#collections.namedtuple).
-   1. [defaultdict](#collections.defaultdict).
-   1. [Counter](#collections.counter).
-   1. [OrderedDict](#collections.ordereddict).
+   1. [namedtuple](#collectionsnamedtuple).
+   1. [defaultdict](#collectionsdefaultdict).
+   1. [Counter](#collectionscounter).
+   1. [OrderedDict](#collectionsordereddict).
 
 ## Primitive Types
 
