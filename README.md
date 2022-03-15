@@ -18,6 +18,23 @@ Additional material:
 | Time complexity | <https://wiki.python.org/moin/TimeComplexity> |
 | Python collections | <https://docs.python.org/3/library/collections.html> |
 
+## Topics
+
+1. [Primitive Types](#primitive-types).
+1. [Tuples](#tuples).
+1. [Lists](#lists).
+1. [Strings](#strings).
+1. [Stacks](#stacks).
+1. [Queues](#queues).
+1. [Sets](#sets).
+1. [Hash Tables](#hash-tables).
+1. [Heaps](#heaps).
+1. [Collections](#collections):
+   1. [namedtuple](#collections.namedtuple).
+   1. [defaultdict](#collections.defaultdict).
+   1. [Counter](#collections.counter).
+   1. [OrderedDict](#collections.ordereddict).
+
 ## Primitive Types
 
 1. Booleans (`bool`).
@@ -480,7 +497,11 @@ You can overcome this problem by applying one of the following strategies:
 >>> heapq.heappop(min_heap)  # `IndexError: index out of range`
 ```
 
-### collections.namedtuple
+### collections
+
+Container datatypes ([collections package](<https://docs.python.org/3/library/collections.html>)).
+
+#### collections.namedtuple
 
 ```python
 >>> from collections import namedtuple
@@ -513,7 +534,7 @@ True
 True
 ```
 
-### collections.defaultdict
+#### collections.defaultdict
 
 ```python
 >>> from collections import defaultdict
@@ -536,7 +557,7 @@ defaultdict(<class 'int'>, {'x': 3, 'y': 10})
 defaultdict(<class 'list'>, {'x': [1, 2]})
 ```
 
-### collections.Counter
+#### collections.Counter
 
 ```python
 >>> from collections import Counter
@@ -558,7 +579,7 @@ c 2
 0
 ```
 
-### collections.OrderedDict
+#### collections.OrderedDict
 
 ```python
 >>> from collections import OrderedDict
