@@ -1,18 +1,22 @@
 .DEFAULT_GOAL := all
 
 INPUT_FILE = README.md
-OUTPUT_FILE = artifacts/python-for-coding-interview.pdf
+USAGE_FILE = USAGE.md
+OUTPUT_DIR = artifacts
+OUTPUT_FILE = $(OUTPUT_DIR)/python-for-coding-interview.pdf
 
 .PHONY: linter
 linter:
-	markdownlint $(INPUT_FILE) --disable MD013 MD025
+	mdl -r ~MD013 "$(INPUT_FILE)"
+	mdl -r ~MD013 "$(USAGE_FILE)"
 
 .PHONY: pdf
 pdf:
-	pandoc $(INPUT_FILE) \
+	mkdir -p "$(OUTPUT_DIR)"
+	pandoc "$(INPUT_FILE)" \
 		--pdf-engine=xelatex \
 		-M date="`date "+%B%e, %Y"`" \
-		-o $(OUTPUT_FILE)
+		-o "$(OUTPUT_FILE)"
 
 .PHONY: all
 all: linter pdf

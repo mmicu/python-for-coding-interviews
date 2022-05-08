@@ -20,20 +20,20 @@ Additional material:
 
 ## Topics
 
-1. [Primitive Types](#primitive-types).
-1. [Tuples](#tuples).
-1. [Lists](#lists).
-1. [Strings](#strings).
-1. [Stacks](#stacks).
-1. [Queues](#queues).
-1. [Sets](#sets).
-1. [Hash Tables](#hash-tables).
-1. [Heaps](#heaps).
-1. [Collections](#collections):
-   1. [namedtuple](#collectionsnamedtuple).
-   1. [defaultdict](#collectionsdefaultdict).
-   1. [Counter](#collectionscounter).
-   1. [OrderedDict](#collectionsordereddict).
+1. [Primitive Types](#primitive-types)
+1. [Tuples](#tuples)
+1. [Lists](#lists)
+1. [Strings](#strings)
+1. [Stacks](#stacks)
+1. [Queues](#queues)
+1. [Sets](#sets)
+1. [Hash Tables](#hash-tables)
+1. [Heaps](#heaps)
+1. [Collections](#collections)
+   1. [namedtuple](#collectionsnamedtuple)
+   1. [defaultdict](#collectionsdefaultdict)
+   1. [Counter](#collectionscounter)
+   1. [OrderedDict](#collectionsordereddict)
 
 ## Primitive Types
 
