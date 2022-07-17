@@ -15,8 +15,9 @@ Additional material:
 
 | **Topic** | **Link** |
 |---|---|
-| Time complexity | <https://wiki.python.org/moin/TimeComplexity> |
+| Python DS | <https://docs.python.org/3/tutorial/datastructures.html> |
 | Python collections | <https://docs.python.org/3/library/collections.html> |
+| Time complexity | <https://docs.python.org/3/tutorial/datastructures.html> |
 
 ## Topics
 
@@ -66,8 +67,8 @@ Additional material:
 4
 >>> 2 * 2.
 4.0
->>> 4 / 2
-2.0
+>>> 5 / 2
+2.5
 >>> 5 // 2  # `//` is the integer division
 2
 >>> 3 % 2
@@ -133,6 +134,13 @@ inf
 10 0
 11 1
 12 2
+
+# Reversed `enumerate`
+>>> for i, v in reversed(list(enumerate(['a', 'b', 'c']))): print(i, v)
+...
+2 c
+1 b
+0 a
 ```
 
 ## Tuples
