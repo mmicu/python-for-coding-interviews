@@ -12,7 +12,6 @@ RUN apt-get update && \
     gem install mdl
 
 COPY Makefile  /repo/
-COPY USAGE.md  /repo/
 COPY README.md /repo/
 
 RUN mkdir /repo/artifacts
