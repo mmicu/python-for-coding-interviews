@@ -15,7 +15,7 @@ pdf:
 	mkdir -p "$(OUTPUT_DIR)"
 	pandoc "$(INPUT_FILE)" \
 		--pdf-engine=xelatex \
-		-M date="`date "+%B%e, %Y"`" \
+		-M date="`date "+%B %e, %Y"`" \
 		-o "$(OUTPUT_FILE)"
 
 .PHONY: all
