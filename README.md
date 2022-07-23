@@ -102,6 +102,14 @@ Additional material:
 -inf
 >>> float('inf')  # Pseudo max-int
 inf
+
+# Pseudo lower and upper bounds (Python >= 3.5)
+>>> import math
+
+>>> math.inf
+inf
+>>> -math.inf
+-inf
 ```
 
 ## `range` and `enumerate`
@@ -113,31 +121,26 @@ inf
 >>> list(range(1, 10, 2))
 [1, 3, 5, 7, 9]
 >>> for i in range(3): print(i)
-...
 0
 1
 2
 >>> for i in range(2, -1, -1): print(i)  # Equivalent to `reversed(range(3))`
-...
 2
 1
 0
 
 # `enumerate`
 >>> for i, v in enumerate(range(3)): print(i, v)
-...
 0 0
 1 1
 2 2
 >>> for i, v in enumerate(range(3), start=10): print(i, v)
-...
 10 0
 11 1
 12 2
 
 # Reversed `enumerate`
 >>> for i, v in reversed(list(enumerate(['a', 'b', 'c']))): print(i, v)
-...
 2 c
 1 b
 0 a
@@ -261,10 +264,10 @@ True
 
 # Sort by a different key
 >>> students = [
-...     ('Mark', 21),
-...     ('Luke', 20),
-...     ('Anna', 18),
-... ]
+    ('Mark', 21),
+    ('Luke', 20),
+    ('Anna', 18),
+]
 >>> sorted(students, key=lambda s: s[1])  # It returns a new list
 [('Anna', 18), ('Luke', 20), ('Mark', 21)]
 >>> students.sort(key=lambda s: s[1])  # In-place
@@ -437,9 +440,7 @@ True
 dict_keys(['a', 'b'])
 >>> d.values()
 dict_values(['hello, world', 11])
->>> for k, v in d.items():
-...     print(k, v)
-...
+>>> for k, v in d.items(): print(k, v)
 a hello, world
 b 11
 
@@ -530,11 +531,10 @@ True
 
 # Python >= 3.6.1
 >>> from typing import NamedTuple
->>>
+
 >>> class Point(NamedTuple):
-...     x: int
-...     y: int
-...
+        x: int
+        y: int
 
 >>> p0 = Point(1, 2)
 >>> p1 = Point(x=1, y=2)
@@ -577,9 +577,7 @@ Counter({'a': 4, 'b': 2, 'c': 2})
 dict_keys(['a', 'b', 'c'])
 >>> c.items()
 dict_items([('a', 4), ('b', 2), ('c', 2)])
->>> for k, v in c.items():
-...     print(k, v)
-...
+>>> for k, v in c.items(): print(k, v)
 a 4
 b 2
 c 2
@@ -600,9 +598,7 @@ c 2
 >>> d
 OrderedDict([('first', 1), ('second', 2), ('third', 3)])
 
->>> for k, v in d.items():
-...     print(k, v)
-...
+>>> for k, v in d.items(): print(k, v)
 first 1
 second 2
 third 3
