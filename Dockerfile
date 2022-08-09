@@ -13,6 +13,7 @@ RUN apt-get update && \
 
 COPY Makefile  /repo/
 COPY README.md /repo/
+COPY USAGE.md /repo/
 
 RUN mkdir /repo/artifacts
 

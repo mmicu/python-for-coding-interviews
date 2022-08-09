@@ -19,7 +19,7 @@ Additional material:
 | Python collections | <https://docs.python.org/3/library/collections.html> |
 | Time complexity | <https://docs.python.org/3/tutorial/datastructures.html> |
 
-## Topics
+## Index
 
 1. [Primitive Types](#primitive-types)
 1. [Tuples](#tuples)
@@ -31,10 +31,12 @@ Additional material:
 1. [Hash Tables](#hash-tables)
 1. [Heaps](#heaps)
 1. [Collections](#collections)
-   1. [namedtuple](#collectionsnamedtuple)
-   1. [defaultdict](#collectionsdefaultdict)
-   1. [Counter](#collectionscounter)
-   1. [OrderedDict](#collectionsordereddict)
+   * [namedtuple](#collectionsnamedtuple)
+   * [defaultdict](#collectionsdefaultdict)
+   * [Counter](#collectionscounter)
+   * [OrderedDict](#collectionsordereddict)
+
+\newpage
 
 ## Primitive Types
 
@@ -63,15 +65,15 @@ Additional material:
 >>> int('10a')  # `ValueError: invalid literal for int() with base 10: '10a'`
 
 # Operations
->>> 2 * 2
-4
->>> 2 * 2.
-4.0
+>>> 5 * 2
+10
+>>> 5 * 2.
+10.0
 >>> 5 / 2
 2.5
 >>> 5 // 2  # `//` is the integer division
 2
->>> 3 % 2
+>>> 5 % 2
 1
 
 # `min` and `max`
@@ -228,20 +230,20 @@ True
 True
 
 # Built-in methods
->>> l = [2, 1, 4, 3]
+>>> l = [3, 1, 2, 0]
 >>> len(l)
 4
 >>> min(l)
-1
+0
 >>> max(l)
-4
+3
 >>> sum(l)
-10
->>> any(v == 4 for v in l)
+6
+>>> any(v == 3 for v in l)
 True
 >>> any(v == 5 for v in l)
 False
->>> all(v > 0 for v in l)
+>>> all(v >= 0 for v in l)
 True
 
 # Sort list in-place (`sort`)

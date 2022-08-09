@@ -2,6 +2,7 @@
 .vscode
 misc
 
+*.bat
 NOTES.md
 TODO.md
 
