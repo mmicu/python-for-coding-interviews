@@ -17,7 +17,7 @@ Additional material:
 |---|---|
 | Python DS | <https://docs.python.org/3/tutorial/datastructures.html> |
 | Python collections | <https://docs.python.org/3/library/collections.html> |
-| Time complexity | <https://docs.python.org/3/tutorial/datastructures.html> |
+| Time complexity | <https://wiki.python.org/moin/TimeComplexity> |
 
 ## Index
 
