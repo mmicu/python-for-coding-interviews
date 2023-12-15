@@ -397,6 +397,7 @@ True
 >>> s
 {2, 'a'}
 >>> s.remove(1)  # `KeyError: 1`
+>>> s.discard(1)  # It won't raise `KeyError` even if the element does not exist
 >>> s.pop()  # Remove and return an arbitrary element from the set
 2
 
