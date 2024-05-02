@@ -511,7 +511,7 @@ You can overcome this problem by applying one of the following strategies:
 
 ### collections
 
-Container datatypes ([collections package](<https://docs.python.org/3/library/collections.html>)).
+Container data types in the ([collections package](<https://docs.python.org/3/library/collections.html>)).
 
 #### collections.namedtuple
 
@@ -589,6 +589,9 @@ c 2
 ```
 
 #### collections.OrderedDict
+
+Please, notice that, since `Python` `3.6`,
+the order of items in a dictionary is guaranteed to be preserved.
 
 ```python
 >>> from collections import OrderedDict
