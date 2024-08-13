@@ -364,7 +364,7 @@ True
 1
 
 >>> len(queue)
-2
+1
 
 >>> queue.popleft()
 2
